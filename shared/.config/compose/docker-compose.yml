@@ -1,0 +1,66 @@
+name: "local/db"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:18-alpine
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_PORT=5432
+    user: postgres
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-postgres}",
+        ]
+      interval: 30s
+      retries: 5
+      start_period: 0s
+      timeout: 10s
+
+    volumes:
+      - ~/.docker/pg:/var/lib/postgresql
+
+  mongo:
+    container_name: mongo
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.stats().ok"]
+      interval: 30s
+      retries: 5
+      start_period: 0s #
+      timeout: 10s
+
+    volumes:
+      - ./.docker/mongo/mongo:/etc/mongo
+      - ./.docker/mongo/db:/data/db
+      - ./.docker/mongo/configdb:/data/configdb
+
+  redis:
+    container_name: redis
+    image: redis:7
+    # network_mode: "host"
+    ports:
+      - "6379:6379"
+    command: redis-server
+    restart: unless-stopped
+
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      retries: 5
+      start_period: 0s
+      timeout: 10s
+
+    volumes:
+      - ./.docker/redis/db:/usr/local/etc/redis
+      - ./.docker/redis/data:/data

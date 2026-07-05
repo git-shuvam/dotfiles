@@ -1,0 +1,58 @@
+set shell := ["zsh", "-cu"]
+set quiet
+set ignore-comments
+set allow-duplicate-variables
+
+alias x := uninstall
+alias i := install
+alias u := update
+
+mod? dot '~/.dotfiles/justfile'
+
+_root:
+    just -g -ul
+
+[macos]
+clean:
+    -brew autoremove && brew cleanup --prune=all
+
+[linux]
+clean:
+    -sudo apt autoremove --purge && sudo apt autoclean
+
+[macos]
+update:
+    -brew update && brew upgrade -y
+
+[linux]
+update:
+    -sudo apt update && sudo apt upgrade -y
+
+[macos]
+uninstall *args:
+    -brew uninstall {{ args }}
+
+[linux]
+uninstall *args:
+    -sudo apt remove --purge {{ args }} -y
+
+[macos]
+install *args:
+    -brew install {{ args }}
+
+[linux]
+install *args:
+    -sudo apt install {{ args }} -y
+
+[macos]
+ls:
+    -brew list
+
+[linux]
+ls:
+    -apt list --manually-installed
+
+[arg('service', pattern='^(postgres|redis|mongo)$')]
+[arg('action', pattern='^(up|down)$')]
+compose service action *flags:
+    -docker compose -f ~/.config/compose/docker-compose.yml {{ action }} {{ service }} {{ flags }}

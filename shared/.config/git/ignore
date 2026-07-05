@@ -1,0 +1,14 @@
+.DS_Store/
+.docker/
+.env.*
+*.env
+!.env.example
+*ligacy*/
+.vscode/
+.ropeproject/
+__pycache__/
+.ruff_cache/
+*_ligacy*
+scratches/
+**/scraches/
+.backup/

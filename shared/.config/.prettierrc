@@ -1,0 +1,33 @@
+{
+  "tabWidth": 2,
+  "printWidth": 120,
+  "semi": false,
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": "*.{ts,tsx}",
+      "options": {
+        "quoteProps": "as-needed",
+        "arrowParens": "avoid",
+        "parser": "typescript"
+      }
+    },
+    {
+      "files": "*.json",
+      "options": {
+        "singleQuote": false,
+        "parser": "json",
+        "bracketSpacing": false
+      }
+    },
+    {
+      "files": ["settings.json", ".oxfmtrc.json", ".oxlintrc.json"],
+      "options": {
+        "printWidth": 350,
+        "tabWidth": 4,
+        "bracketSpacing": true,
+        "parser": "jsonc"
+      }
+    }
+  ]
+}

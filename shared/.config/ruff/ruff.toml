@@ -1,0 +1,40 @@
+cache-dir = "${HOME}/.cache/ruff"
+exclude = [".git", "__pycache__", ".venv", "venv", "build", "dist"]
+line-length = 120
+src = ["src", 'test']
+fix = true
+output-format = "grouped"
+respect-gitignore = true
+per-file-ignores = { "migrations/*" = ["ALL"] } # Ban certain files from linting
+show-fixes = true # Show progress bar when running Ruff
+force-exclude = true # Run on changed files only (good for pre-commit hooks)
+
+[lint]
+select = ["E", "F", "I", "UP", "B", "C4", "N", "RUF", "PT"]
+ignore = ["E501", "E731"]
+fixable = ["ALL"]
+task-tags = ["TODO", "FIXME"] # highlight TODOs in code
+unfixable = ["B007"] # e.g. don't auto-fix some risky rules
+preview = false # enable preview rules if you want cutting-edge checks
+
+[format]
+quote-style = "double" # Like Black, use double quotes for strings.
+indent-style = "space" # Like Black, indent with spaces, rather than tabs.
+skip-magic-trailing-comma = false # Like Black, respect magic trailing commas.
+line-ending = "auto" # Like Black, automatically detect the appropriate line ending.
+docstring-code-format = true # format code examples inside docstrings
+preview = false # enable preview rules if you want cutting-edge checks
+
+# "E" = pycodestyle
+# "F" = pyflakes
+# "I" = isort
+# "UP" = pyupgrade
+# "B" = bugbear
+# "C4" = comprehensions
+# "N" = naming conventions
+# "RUF" = Ruff-specific rules
+# "PT" = pytest style improvements
+
+# E501 = line too long (handled by formatter like Black)
+# E731 = Checks for lambda expressions which are assigned to a variable.
+# B007 = Checks for unused variables in loops (e.g., for and while statements).
