@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+echo 'Cleaning generated dotfiles artifacts...'
+for path in \
+	"$HOME/.cache/nvim" \
+	"$HOME/.cache/zsh" \
+	"$HOME/.config/coc" \
+	"$HOME/.history" \
+	"$HOME/.local/share/nvim" \
+	"$HOME/.local/share/vim" \
+	"$HOME/.local/share/zsh/" \
+	"$HOME/.local/state/zsh/" \
+	"$HOME/.netrwhist" \
+	"$HOME/.vim" \
+	"$HOME/.viminfo" \
+	"$HOME/.zcompcache" \
+	"$HOME/.zsh_sessions"; do
+	if [ -e "$path" ]; then
+		rm -rf "$path"
+		echo "🗑️ $path"
+	fi
+done

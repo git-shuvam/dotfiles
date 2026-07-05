@@ -1,0 +1,108 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+command_timeout = 500
+# right_format = """
+# $git_branch \
+# $git_status
+# """
+right_format = """$all"""
+
+format = """
+$git_branch\
+$git_status\
+$line_break\
+$character
+"""
+
+# # ❯ ➜
+[character]
+success_symbol = '[](cyan)'
+# success_symbol = '[❯](bold green)'
+# success_symbol = '[➜](bold green)'
+
+[line_break]
+disabled = true
+
+[directory]
+read_only = " 󰌾"
+truncate_to_repo = false
+truncation_length = 2
+# style = "cyan bold dimmed"
+style = "bright-black"
+
+[git_branch]
+symbol = " "
+# always_show_remote = true
+format = "[$symbol$branch(:$remote_branch)]($style) "
+style = "cyan"
+
+[git_commit]
+tag_symbol = '  '
+tag_disabled = false
+commit_hash_length = 7
+
+[git_status]
+ahead = "⇡${count}"
+behind = "⇣${count}"
+untracked = "?"
+conflicted = "="
+deleted = "✘"
+diverged = "⇕"
+modified = "!"
+
+[package]
+disabled = false
+symbol = "󰏗 "
+
+[cmd_duration]
+disabled = true
+
+[docker_context]
+symbol = " "
+
+[python]
+symbol = " "
+style = "green bold"
+
+[lua]
+symbol = " "
+
+[rust]
+symbol = "󱘗 "
+
+[nodejs]
+symbol = " "
+
+# [os]
+# disabled = true
+
+# [os.symbols]
+# Macos = "[ ](bold white)"
+# Ubuntu = " "
+# Linux = " "
+# Arch = " "
+
+# [battery]
+# disabled = false
+
+
+# [hostname]
+# ssh_symbol = " "
+# disabled = false
+
+
+# [shell]
+# bash_indicator = "bsh"
+# zsh_indicator = "zsh"
+# disabled = false
+
+# [shlvl]
+# disabled = false
+
+# [golang]
+# symbol = " "
+
+# [memory_usage]
+# symbol = "󰍛 "
+# disabled = false
+# threshold = 50

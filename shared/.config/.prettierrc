@@ -1,0 +1,38 @@
+{
+  "overrides": [
+    {
+      "files": "*.{ts,tsx}",
+      "options": {
+        "quoteProps": "as-needed",
+        "arrowParens": "avoid",
+        "printWidth": 120,
+        "trailingComma": "none",
+        "semi": false,
+        "parser": "typescript",
+        "plugins": ["prettier-plugin-organize-imports"]
+      }
+    },
+    {
+      "files": "*.json",
+      "options": {
+        "printWidth": 120,
+        "tabWidth": 2,
+        "semi": false,
+        "singleQuote": false,
+        "parser": "json",
+        "trailingComma": "none",
+        "bracketSpacing": false
+      }
+    },
+    {
+      "files": ["settings.json", ".oxfmtrc.json", ".oxlintrc.json"],
+      "options": {
+        "printWidth": 350,
+        "tabWidth": 4,
+        "bracketSpacing": true,
+        "trailingComma": "none",
+        "parser": "jsonc"
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+vim9script
+
+if exists('$XDG_DATA_HOME')
+    &packpath = $"{expand('$XDG_DATA_HOME')}/vim,{&packpath}"
+endif
+
+# Options ===================================================
+g:mapleader = ' '
+filetype plugin indent on
+syntax on
+set smartindent showmatch
+set nu rnu
+set softtabstop=4 tabstop=4 shiftwidth=4 showtabline=4
+set autoindent expandtab
+set ignorecase smartcase incsearch hlsearch
+set background=dark
+set signcolumn=yes
+set cursorline
+set cursorcolumn
+set backspace=indent,eol,start
+set splitbelow splitright
+# dw/diw/ciw treat dash-separated words as single word
+set iskeyword+=-
+# set scrolloff=10
+# set updatetime=50
+# set laststatus=2
+set noshowmode
+set clipboard=unnamedplus
+set encoding=utf-8
+set mouse=a
+set showcmd lazyredraw wildmenu
+set termguicolors
+
+# set autoread
+# set cpoptions+=x
+# set foldlevel=99
+# set foldmethod=indent
+set hidden
+set listchars=tab:▸\ ,trail:·,extends:»,precedes:«,nbsp:·
+set nobackup nowritebackup noswapfile
+set noerrorbells novisualbell
+# set nocompatible
+
+set spell
+packadd! comment
+packadd! hlyank
+packadd! nohlsearch
+packadd! matchit
+
+# set t_Co=256
+
+# ===================================================
+# Minimal native plugin manager (Vim 9)
+# Installs missing plugins into Vim's default package
+# directory and loads them immediately.
+# ===================================================
+import './plugin.vim' as pm
+
+pm.Sync([
+    {repo: 'preservim/nerdtree'},
+    {repo: 'itchyny/lightline.vim'},
+    {repo: 'tomasiser/vim-code-dark'},
+    {repo: 'ryanoasis/vim-devicons'},
+    {repo: 'joshdick/onedark.vim'},
+    {repo: 'tpope/vim-unimpaired' },
+    {repo: 'neoclide/coc.nvim', start: true, post: ['npm ci']},
+    # {repo: 'tpope/vim-commentary'},
+    # {repo: 'machakann/vim-highlightedyank'},
+    # {repo: 'junegunn/fzf'},
+    # {repo: 'junegunn/fzf.vim'},
+    # {repo: 'yegappan/lsp' },
+    # {repo: 'ojroques/vim-oscyank' },
+    # {repo: 'tomasiser/vim-code-dark' },
+])
+
+# ===================================================
+# MISC
+# ===================================================
+# Key mappings
+# ---------------------------------------------------
+
+# Press Ctrl+c in visual mode to copy to system clipboard
+vmap <C-c> "+y
+
+# Press Leader + y in yank motion to system clipboard
+nmap <leader>y "+y
+vmap <leader>y "+y
+
+
+# tpope/vim-unimpaired
+# ---------------------------------------------------
+nmap <C-k> [e
+nmap <C-j> ]e
+vmap <C-k> [egv
+vmap <C-j> ]egv
+
+
+# preservim/nerdtree: ctrl + n/t/f
+# ---------------------------------------------------
+g:NERDTreeShowHidden = 1
+# autocmd VimEnter * NERDTree | wincmd p # Start NERDTree and leave the cursor in it.
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <leader><leader> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+
+# UI themes
+# ---------------------------------------------------
+colorscheme onedark
+def LightlineFilename(): string
+    return expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+enddef
+
+g:lightline = {
+    colorscheme: 'onedark',
+    component: {
+        'lineinfo': '%3l:%-2v%<',
+    },
+    component_function: {
+        gitbranch: 'FugitiveHead',
+        filename: 'LightlineFilename',
+    },
+    active: {
+        left: [
+            [ 'mode', 'paste' ],
+            [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+        ],
+        right: [
+            [ 'lineinfo' ],
+            [ 'fileformat', 'fileencoding', 'filetype' ],
+        ],
+    },
+    mode_map: {
+        n: 'N',
+        i: 'I',
+        R: 'R',
+        v: 'V',
+        V: 'VL',
+        "\<C-v>": 'VB',
+        c: 'C',
+        s: 'S',
+        S: 'SL',
+        "\<C-s>": 'SB',
+        t: 'T',
+    },
+}
+g:codedark_conservative = 1
+g:codedark_modern = 1
+g:codedark_italics = 1
+g:codedark_transparent = 1   # Make the background transparent
+
+# machakann/vim-highlightedyank
+# ---------------------------------------------------
+# g:highlightedyank_highlight_duration = 400
+
+# junegunn/fzf.vim
+# ---------------------------------------------------
+g:fzf_vim = {}
+
+# # ---------------------------------------------------
+# # neoclide/coc.nvim
+#
+# g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-jedi']
+#
+# # https://www.youtube.com/watch?v=3VnzLHG_aWA
+#
+# # Use tab for trigger completion with characters ahead and navigate
+# # NOTE: There's always complete item selected by default, you may want to enable
+# # no select by `"suggest.noselect": true` in your configuration file
+# # NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+# # other plugin before putting this into your config
+# inoremap <silent><expr> <TAB>
+#       \ coc#pum#visible() ? coc#pum#next(1) :
+#       \ CheckBackspace() ? "\<Tab>" :
+#       \ coc#refresh()
+# inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+#
+# # Make <CR> to accept selected completion item or notify coc.nvim to format
+# # <C-g>u breaks current undo, please make your own choice
+# inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+#                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+
+def CheckBackspace(): bool
+    const col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+enddef

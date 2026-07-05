@@ -1,0 +1,5 @@
+font-family = JetBrainsMono Nerd Font
+font-size = 12
+background-opacity = 0.3
+background-blur = true
+unfocused-split-opacity = 0.9

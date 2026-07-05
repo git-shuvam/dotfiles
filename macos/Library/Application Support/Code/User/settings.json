@@ -1,0 +1,316 @@
+{
+    /* BUILT-IN */
+    "chat.tools.compressOutput.enabled": true,
+    "chat.viewSessions.orientation": "stacked",
+
+    "debug.terminal.clearBeforeReusing": true,
+
+    "diffEditor.codeLens": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    // "diffEditor.hideUnchangedRegions.contextLineCount": 1,
+    // "diffEditor.hideUnchangedRegions.enabled": false,
+
+    "editor.codeActions.triggerOnFocusChange": true,
+    "editor.codeActionsOnSave": { "source.fixAll.prettier": "always", "source.fixAll.ruff": "never", "source.organizeImports.ruff": "always" }, // "source.fixAll.oxc": "always", "source.format.oxc": "always",
+    "editor.codeLens": true,
+    "editor.codeLensFontFamily": "default",
+    "editor.cursorBlinking": "expand",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.defaultColorDecorators": "always",
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.formatOnType": true,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "editor.inlayHints.fontFamily": "default",
+    "editor.minimap.enabled": false,
+    "editor.rulers": [{ "column": 120, "color": "#888" }],
+    "editor.scrollBeyondLastLine": false,
+    "editor.semanticHighlighting.enabled": false,
+    "editor.showFoldingControls": "always",
+    "editor.tabCompletion": "on",
+    "editor.trimWhitespaceOnDelete": true,
+    "editor.unfoldOnClickAfterEndOfLine": true,
+
+    // "emmet.includeLanguages": { "django-html": "html" },
+
+    "errorLens.messageBackgroundMode": "none",
+
+    "explorer.autoReveal": "focusNoScroll",
+    "explorer.compactFolders": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmPasteNative": false,
+    "explorer.excludeGitIgnore": false,
+
+    "extensions.autoCheckUpdates": false,
+    "extensions.ignoreRecommendations": true,
+    "extensions.supportNodeGlobalNavigator": true,
+
+    "files.associations": { "*just*": "just", "requirements/*.{txt,in}": "pip-requirements" },
+    "files.autoSave": "onFocusChange",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+
+    "git.autofetch": "all",
+    "git.blame.ignoreWhitespace": true,
+    "git.ignoreSubmodules": true,
+
+    "github.copilot.completions.chat.enabled": false,
+    "github.copilot.enable": { "*": false, "python": true },
+    "github.copilot.nextEditSuggestions.eagerness": "auto",
+    "github.copilot.nextEditSuggestions.enabled": false,
+
+    "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "json.format.keepLines": true,
+    "json.format.enable": true,
+    "json.validate.enable": true,
+    "json.schemaDownload.enable": true,
+    "json.schemas": [
+        // { "fileMatch": [ "pyproject.toml" ], "url": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/pyproject.json" },
+        { "fileMatch": ["pyproject.toml"], "url": "https://json.schemastore.org/pyproject.json" },
+        { "fileMatch": ["taplo.toml"], "url": "https://json.schemastore.org/taplo.json" }
+    ],
+    "json.schemaDownload.trustedDomains": {
+        "https://json.schemastore.org/pyproject.json": true,
+        "https://json.schemastore.org/taplo.json": true,
+        "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/pyproject.json": true
+        // "https://json.schemastore.org/pyproject.json": true,
+    },
+
+    "notebook.codeActionsOnSave": { "notebook.source.organizeImports.ruff": "explicit", "notebook.source.fixAll.ruff": "explicit" },
+    "notebook.defaultFormatter": "charliermarsh.ruff",
+    "notebook.formatOnCellExecution": true,
+    "notebook.formatOnSave.enabled": true,
+    "notebook.lineNumbers": "on",
+    "notebook.markup.fontFamily": "default",
+    "notebook.output.fontFamily": "default",
+
+    "problems.defaultViewMode": "tree",
+    "problems.showCurrentInStatus": true,
+
+    "scm.compactFolders": false,
+    "scm.defaultViewMode": "tree",
+    "scm.diffDecorationsGutterPattern": { "added": true },
+    "scm.repositories.explorer": true,
+    "scm.repositories.selectionMode": "single",
+    // "scm.workingSets.enabled": true,
+
+    "search.collapseResults": "alwaysCollapse",
+    "search.showLineNumbers": true,
+    "search.smartCase": true,
+    "search.useGlobalIgnoreFiles": true,
+    "search.useParentIgnoreFiles": true,
+
+    "security.workspace.trust.untrustedFiles": "open",
+
+    "simpleBrowser.focusLockIndicator.enabled": false,
+
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.cursorStyle": "underline",
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.hideOnStartup": "always",
+    "terminal.integrated.initialHint": false,
+    "terminal.integrated.persistentSessionReviveProcess": "never",
+    "terminal.integrated.rightClickBehavior": "paste",
+    "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.stickyScroll.enabled": false,
+    "terminal.integrated.suggest.enabled": false,
+    "terminal.integrated.suggest.quickSuggestions": { "commands": "on", "arguments": "on", "unknown": "off" },
+    "terminal.integrated.suggest.suggestOnTriggerCharacters": true,
+
+    "window.commandCenter": false,
+    "window.confirmSaveUntitledWorkspace": false,
+    "window.density.editorTabHeight": "compact",
+    "window.newWindowDimensions": "maximized",
+    "window.newWindowProfile": "Default",
+
+    "workbench.activityBar.location": "top",
+    "workbench.browser.searchEngine": "google",
+    "workbench.browser.showInTitleBar": true,
+    "workbench.editor.closeOnFileDelete": true,
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editor.pinnedTabSizing": "compact",
+    "workbench.editor.pinnedTabsOnSeparateRow": true,
+    "workbench.editor.useModal": "off",
+    "workbench.editorAssociations": { "*.md": "vscode.markdown.preview.editor" },
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.panel.showLabels": false,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.secondarySideBar.showLabels": false,
+    "workbench.settings.editor": "json",
+    "workbench.sideBar.location": "right",
+    "workbench.tree.indent": 20,
+    // "workbench.editor.enablePreview": false,
+    // "workbench.editor.openPositioning": "last",
+    // "workbench.startupEditor": "readme",
+
+    /* PLUGINS
+     *
+     */
+
+    /* MISC
+     *
+     * 01. SonarSource.sonarlint-vscode
+     * 02. streetsidesoftware.code-spell-checker
+     * 03. usernamehw.errorlens
+     * 04. tamasfe.even-better-toml
+     * 05. eamodio.gitlens
+     * 06. PKief.material-icon-theme
+     */
+    "cSpell.allowCompoundWords": true,
+    "cSpell.files": ["*.py", "*.jsx?", "*.tsx?"],
+
+    "errorLens.codeLensEnabled": true,
+    "errorLens.enableOnDiffView": true,
+    "errorLens.fontFamily": "default",
+
+    "material-icon-theme.hidesExplorerArrows": true,
+    // "material-icon-theme.opacity": 1,
+    // "material-icon-theme.saturation": 1,
+    // "sonarlint.automaticAnalysis": false,
+    // "sonarlint.focusOnNewCode": true,
+
+    /*
+     * LSP
+     */
+
+    /* JAVASCRIPT
+     * 01. oxc.oxc-vscode
+     * 02. esbenp.prettier-vscode
+     */
+    "[javascript][javascriptreact][markdown][typescript][typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    // "oxc.configPath": "/Users/dev/.config/oxc/.oxlintrc.json",
+    // "oxc.enable": false,
+    // "oxc.fmt.configPath": "/Users/dev/.config/oxc/.oxfmtrc.json",
+    "prettier.configPath": "~/.config/.prettierrc",
+
+    /* PYTHON
+     * 01. ms-python.python
+     * 02. ms-python.vscode-pylance
+     * 03. ms-python.debugpy
+     * 04. ms-python.vscode-python-envs
+     * 05. prasadgk.pythoncodelens
+     * 06. charliermarsh.ruff
+     * 07. ms-toolsai.jupyter
+     */
+    "[python]": { "editor.defaultFormatter": "charliermarsh.ruff" },
+    // "[django-html]": {"editor.defaultFormatter": "junstyle.vscode-django-support"	},
+    // "codeLens.enableCodeLens": true,
+    // "codeLens.filterDefinitions": true,
+    // "codeLens.filterImports": false,
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.generateWithTypeAnnotation": true,
+    "python.analysis.ignore": ["_ligacy*/**"],
+    "python.analysis.supportAllPythonDocuments": true,
+    "python.analysis.supportDocstringTemplate": true,
+    "python.languageServer": "Jedi",
+    "python.terminal.useEnvFile": true,
+    "python.testing.pytestEnabled": true,
+    "python.useEnvironmentsExtension": false,
+    // "python.analysis.exclude": ["${workspaceFolder}/.venv", "${workspaceFolder}/.vscode", "${workspaceFolder}/typings"],
+    // "python.analysis.extraPaths": ["${workspaceFolder}/src", "${workspaceFolder}"],
+    // "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    // "python.testing.cwd": "${workspaceFolder}/tests",
+
+    "ty.disableLanguageServices": true,
+
+    /* ShellScript
+     *
+     * 01. mkhl.shfmt
+     */
+    "[shellscript]": { "editor.defaultFormatter": "mkhl.shfmt" },
+
+    /* Rust
+     *
+     * 01. rust-lang.rust-analyzer
+     */
+    "[rust]": { "editor.defaultFormatter": "rust-lang.rust-analyzer" },
+
+    /* TOML
+     *
+     * 01. tamasfe.even-better-toml
+     */
+    "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
+    "evenBetterToml.schema.associations": {
+        "pyproject.toml": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/pyproject.json",
+        "taplo.toml": "https://json.schemastore.org/taplo.json"
+        // "pyproject.toml": "https://json.schemastore.org/pyproject.json",
+    },
+
+    /* Yaml
+     *
+     * 01. redhat.vscode-yaml
+     */
+    "[yaml]": { "editor.defaultFormatter": "redhat.vscode-yaml" },
+    "yaml.disableSchemaDetection": [],
+    "docker.extension.enableComposeLanguageServer": false,
+
+    /* Go
+    *
+    * 01. golang.go
+    *
+    "[go]": { "editor.defaultFormatter": "golang.go" },
+    */
+
+    /* LUA
+     *
+     * 01. sumneko.lua
+     */
+    "[lua]": { "editor.defaultFormatter": "sumneko.lua" },
+    "Lua.diagnostics.globals": ["vim"],
+    "Lua.runtime.version": "LuaJIT",
+    "Lua.workspace.library": ["~/.config/nvim", "/opt/homebrew/share/nvim/runtime", "/usr/local/share/nvim/runtime"],
+
+    /* Docker
+    *
+    * 01. docker.docker
+    * 02. ms-azuretools.vscode-containers
+    * 03. ms-azuretools.vscode-docker
+    * 04. ms-vscode-remote.remote-containers
+    "[dockercompose]": { "editor.defaultFormatter": "docker.docker" },
+    "[dockerfile]": { "editor.defaultFormatter": "ms-azuretools.vscode-containers" },
+    "docker.extension.enableComposeLanguageServer": false
+    */
+
+    /*
+     * vscodevim.vim
+     */
+    "vim.easymotion": true,
+    "vim.incsearch": true, // default
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true, // default
+    "vim.hlsearch": true,
+    "vim.highlightedyank.enable": true,
+    "vim.insertModeKeyBindings": [{ "before": ["j", "j"], "after": ["<Esc>"] }],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        { "before": ["<leader>", "d"], "after": ["d", "d"] },
+        { "before": ["<C-n>"], "commands": [":nohl"] },
+        { "before": ["K"], "commands": ["lineBreakInsert"], "silent": true }
+    ],
+    "vim.leader": "<leader>",
+    "vim.handleKeys": { "<C-a>": false, "<C-f>": false },
+    "vim.normalModeKeyBindings": [
+        { "before": ["<C-n>"], "commands": [":nohl"] },
+        { "before": ["leader", "w"], "commands": ["workbench.action.files.save"] }
+    ],
+    "vim.operatorPendingModeKeyBindings": [
+        { "before": ["{"], "after": ["w"] },
+        { "before": ["L"], "after": ["$"] },
+        { "before": ["H"], "after": ["^"] }
+    ],
+
+    "vim.visualModeKeyBindings": [
+        { "before": [">"], "commands": ["editor.action.indentLines"] },
+        { "before": ["<"], "commands": ["editor.action.outdentLines"] }
+    ],
+    "vim.operatorPendingModeKeyBindingsNonRecursive": [{ "before": ["("], "after": ["i("] }],
+    // To improve performance
+    "extensions.experimental.affinity": { "vscodevim.vim": 1 }
+}
