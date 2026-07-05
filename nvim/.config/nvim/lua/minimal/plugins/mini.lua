@@ -1,0 +1,8 @@
+require('minimal.plugins.mini.icons')
+-- require('minimal.plugins.mini.files')
+require('minimal.plugins.mini.notify')
+require('minimal.plugins.mini.cmdline')
+require('minimal.plugins.mini.surround')
+require('minimal.plugins.mini.pick')
+require('minimal.plugins.mini.extra')
+require('minimal.plugins.mini.completion')

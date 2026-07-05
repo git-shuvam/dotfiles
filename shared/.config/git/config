@@ -1,0 +1,109 @@
+[user]
+    name = shuvam
+    email = shuvam@gmail.com
+    # singlekey = ...
+
+[init]
+    defaultBranch = master
+
+[core]
+    compression = 9
+    whitespace = error
+    preloadindex = true
+    excludesFile = ~/.config/git/ignore
+
+[advice]
+    addEmptyPathspec = false
+    pushNonFastForword = false
+    statusHint = false
+
+
+[status]
+    branch = true
+    showStash = true
+    showUntrackedFiles = all
+
+[commit]
+    template = ~/.config/git/template.txt
+    # gpgSign = true
+
+[log]
+    abbrevCommit = true
+    grapgColors = blue,yellow,cyan,magenta,green,red
+
+[color "decorate"]
+    HEAD = red
+    branch = blue
+    tag = yellow
+    remoteBranch = magenta
+
+[push]
+    autoSetupRemote = true
+    default = current
+    followTags = true
+
+[pull]
+    default = current
+    rebase = true
+
+[rebase]
+    autoStash = true
+    missingCommitsCheck = warn
+
+[diff]
+    context = 3
+    renames = copies
+    interHunkContext = 10
+    tool = vimdiff
+
+
+[difftool "vimdiff"]
+    cmd = vim -d "$LOCAL" "$REMOTE"
+
+# [diff-so-fancy]
+#     markEmptyLines = false
+
+[color "diff"]
+    meta = black bold
+    frag = magenta
+    context = white
+    whitespace = yellow reverse
+    odg = red
+
+
+[pager]
+    # diff = diff-so-fancy | $PAGER
+    branch = false
+    tag = false
+
+
+[interactive]
+    # diffFilter = diff-so-fancy --patch
+    singlekey = true
+
+[branch]
+    sort = -committerdate
+
+
+[color "branch"]
+    current = magenta
+    local = default
+    remote = yellow
+    upstream = green
+    plain = blue
+
+[tag]
+    sort = -taggerdate
+
+[url "git@github.com:"]
+    insteadOf = 'gh:'
+
+[url "git@github.com:<username>/"]
+    insteadOf = 'me:'
+
+
+[url "ssh://git@github.com:<username>/"]
+    insteadOf = 'me:'
+
+[alias]
+	x-branch = "branch -a --sort=-committerdate --format='%(committerdate:short) %(refname:short)'"

@@ -1,0 +1,17 @@
+[analysis]
+respect-type-ignore-comments = true # Disable support for `type: ignore` comments
+
+[environment]
+# python = "./.venv"
+# python-platform = "darwin" # "win32" | "darwin" | "android" | "ios" | "linux" | "all" | str
+python-version = "3.13"
+root = ["./src", "./lib", "./vendor"] # Multiple directories (priority order)
+
+[src]
+include = ["src","tests"]
+exclude = []
+respect-ignore-files = true
+root = "./src"
+
+[terminal]
+output-format = "concise"

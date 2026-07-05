@@ -1,0 +1,12 @@
+# theme = Neobones Dark
+# theme = Xcode Dark hc
+# theme = Matrix
+# theme = Solarized Dark Higher Contrast
+# theme = Horizon
+# theme = Everforest Dark Hard
+macos-icon = official
+theme = Dark Modern
+font-family = JetBrainsMono Nerd Font
+font-size = 12
+background-opacity = 0.9
+background-blur = true

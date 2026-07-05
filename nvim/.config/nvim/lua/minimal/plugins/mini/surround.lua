@@ -1,0 +1,11 @@
+---- mini surround ----
+require('mini.surround').setup()
+-- Default keymap
+-- | `sa` | Add surrounding                 |
+-- | `sd` | Delete surrounding              |
+-- | `sr` | Replace surrounding             |
+-- | `sf` | Find surrounding (right)        |
+-- | `sF` | Find surrounding (left)         |
+-- | `sh` | Highlight surrounding           |
+-- | `sn` | Update n_lines                  |
+-- | `l` / `n` | as suffix for prev/next    |
