@@ -5,10 +5,19 @@
   "trailingComma": "none",
   "overrides": [
     {
-      "files": "*.{ts,tsx}",
+      "files": "*.{js,ts}",
       "options": {
         "quoteProps": "as-needed",
         "arrowParens": "avoid",
+        "parser": "typescript"
+      }
+    },
+    {
+      "files": "*.{jsx,tsx}",
+      "options": {
+        "jsxSingleQuote": false,
+        "bracketSameLine": false,
+        "singleAttributePerLine": false,
         "parser": "typescript"
       }
     },

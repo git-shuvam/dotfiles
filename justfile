@@ -23,10 +23,10 @@ cleanup:
 
 
 _sync os:
-    stow -R shared {{os}} nvim
+    stow -R shared {{os}}
 
 _unsync os:
-    stow -D shared {{os}} nvim
+    stow -D shared {{os}}
     just cleanup
 
 

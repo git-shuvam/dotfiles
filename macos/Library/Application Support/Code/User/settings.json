@@ -1,5 +1,11 @@
 {
-    /* BUILT-IN */
+    /*
+    ********************************************************************
+    BUILT-IN
+    ********************************************************************
+    */
+    // "accessibility.dimUnfocused.enabled": true,
+
     "chat.titleBar.openInAgentsWindow.enabled": false,
     "chat.tools.compressOutput.enabled": true,
     "chat.viewSessions.orientation": "stacked",
@@ -7,9 +13,7 @@
     "debug.terminal.clearBeforeReusing": true,
 
     "diffEditor.codeLens": true,
-    "diffEditor.ignoreTrimWhitespace": false,
-    // "diffEditor.hideUnchangedRegions.contextLineCount": 1,
-    // "diffEditor.hideUnchangedRegions.enabled": false,
+    "diffEditor.ignoreTrimWhitespace": true,
 
     "editor.codeActions.triggerOnFocusChange": true,
     "editor.codeActionsOnSave": { "source.fixAll.prettier": "always", "source.fixAll.ruff": "never", "source.organizeImports.ruff": "always" }, // "source.fixAll.oxc": "always", "source.format.oxc": "always",
@@ -28,6 +32,7 @@
     "editor.inlayHints.fontFamily": "default",
     "editor.linkedEditing": true,
     "editor.minimap.enabled": false,
+    "editor.minimap.renderCharacters": false,
     "editor.rulers": [{ "column": 120, "color": "#888" }],
     "editor.scrollBeyondLastLine": false,
     "editor.semanticHighlighting.enabled": false,
@@ -51,7 +56,7 @@
     "extensions.ignoreRecommendations": true,
     "extensions.supportNodeGlobalNavigator": true,
 
-    "files.associations": { "*just*": "just", "requirements/*.{txt,in}": "pip-requirements", "**/ghostty/*": "plaintext", "**/templates/**/*.html": "django-html" },
+    "files.associations": { "*.css": "tailwindcss", "*just*": "just", "requirements/*.{txt,in}": "pip-requirements", "**/ghostty/*": "plaintext", "**/templates/**/*.html": "django-html", "**/compose/*.yml": "dockercompose", "*.compose.yml": "dockercompose" },
     "files.autoSave": "onFocusChange",
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
@@ -71,25 +76,24 @@
         "toml": true
     },
     "github.copilot.nextEditSuggestions.eagerness": "auto",
-    "github.copilot.nextEditSuggestions.enabled": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
 
-    "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-    "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-    "json.format.keepLines": true,
+    "[json][jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
     "json.format.enable": true,
-    "json.validate.enable": true,
+    "json.format.keepLines": true,
     "json.schemaDownload.enable": true,
-    "json.schemas": [
-        // { "fileMatch": [ "pyproject.toml" ], "url": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/pyproject.json" },
-        { "fileMatch": ["pyproject.toml"], "url": "https://json.schemastore.org/pyproject.json" },
-        { "fileMatch": ["taplo.toml"], "url": "https://json.schemastore.org/taplo.json" }
-    ],
     "json.schemaDownload.trustedDomains": {
         "https://json.schemastore.org/pyproject.json": true,
         "https://json.schemastore.org/taplo.json": true,
-        "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/pyproject.json": true
-        // "https://json.schemastore.org/pyproject.json": true,
+        "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/pyproject.json": true,
+        "https://turborepo.dev/schema.json": true,
+        "https://ui.shadcn.com/schema.json": true
     },
+    "json.schemas": [
+        { "fileMatch": ["pyproject.toml"], "url": "https://json.schemastore.org/pyproject.json" },
+        { "fileMatch": ["taplo.toml"], "url": "https://json.schemastore.org/taplo.json" }
+    ],
+    "json.validate.enable": true,
 
     "notebook.codeActionsOnSave": { "notebook.source.organizeImports.ruff": "explicit", "notebook.source.fixAll.ruff": "explicit" },
     "notebook.defaultFormatter": "charliermarsh.ruff",
@@ -107,7 +111,6 @@
     "scm.diffDecorationsGutterPattern": { "added": true },
     "scm.repositories.explorer": true,
     "scm.repositories.selectionMode": "single",
-    // "scm.workingSets.enabled": true,
 
     "search.collapseResults": "alwaysCollapse",
     "search.showLineNumbers": true,
@@ -132,12 +135,18 @@
     "terminal.integrated.suggest.enabled": false,
     "terminal.integrated.suggest.quickSuggestions": { "commands": "on", "arguments": "on", "unknown": "off" },
     "terminal.integrated.suggest.suggestOnTriggerCharacters": true,
+    "terminal.integrated.tabs.defaultColor": "terminal.ansiCyan",
+    "terminal.integrated.tabs.defaultIcon": "robot",
+    "terminal.integrated.tabs.description": "",
+    "terminal.integrated.tabs.title": "${shellType}",
 
+    "window.autoDetectColorScheme": true,
     "window.commandCenter": false,
     "window.confirmSaveUntitledWorkspace": false,
     "window.density.editorTabHeight": "compact",
     "window.newWindowDimensions": "maximized",
     "window.newWindowProfile": "Default",
+    "window.systemColorTheme": "auto",
 
     "workbench.activityBar.compact": true,
     "workbench.browser.searchEngine": "google",
@@ -147,30 +156,32 @@
     "workbench.editor.pinnedTabSizing": "compact",
     "workbench.editor.pinnedTabsOnSeparateRow": true,
     "workbench.editor.useModal": "off",
-    // "workbench.editorAssociations": { "*.md": "vscode.markdown.preview.editor" },
+    "workbench.editorAssociations": { "*.copilotmd": "vscode.markdown.preview.editor", "*.md": "vscode.markdown.editor" },
     "workbench.iconTheme": "material-icon-theme",
     "workbench.panel.showLabels": false,
+    "workbench.productIconTheme": "material-product-icons",
     "workbench.secondarySideBar.defaultVisibility": "hidden",
     "workbench.secondarySideBar.showLabels": false,
     "workbench.settings.editor": "json",
     "workbench.sideBar.location": "right",
     "workbench.tree.indent": 20,
-    // "workbench.editor.enablePreview": false,
-    // "workbench.editor.openPositioning": "last",
-    // "workbench.startupEditor": "readme",
 
     /*
-     * PLUGINS
-     */
+    ********************************************************************
+    PLUGINS
+    ********************************************************************
+    */
 
-    /* MISC
-     *
-     * 01. SonarSource.sonarlint-vscode
-     * 02. streetsidesoftware.code-spell-checker
-     * 03. usernamehw.errorlens
-     * 04. tamasfe.even-better-toml
-     * 05. eamodio.gitlens
-     * 06. PKief.material-icon-theme
+    /*
+    ====================================================================
+    MISC
+    ====================================================================
+    - SonarSource.sonarlint-vscode
+    - streetsidesoftware.code-spell-checker
+    - usernamehw.errorlens
+    - tamasfe.even-better-toml
+    - eamodio.gitlens
+    - PKief.material-icon-theme
      */
     "cSpell.allowCompoundWords": true,
     "cSpell.files": ["*.py", "*.jsx?", "*.tsx?"],
@@ -180,120 +191,122 @@
     "errorLens.fontFamily": "default",
 
     "material-icon-theme.hidesExplorerArrows": true,
-    // "material-icon-theme.opacity": 1,
-    // "material-icon-theme.saturation": 1,
     // "sonarlint.automaticAnalysis": false,
     // "sonarlint.focusOnNewCode": true,
 
     /*
-     * LSP
-     */
+    ====================================================================
+    LSP
+    ====================================================================
+    */
 
-    /* JAVASCRIPT
-     * 01. oxc.oxc-vscode
-     * 02. esbenp.prettier-vscode
-     */
-    "[javascript][javascriptreact][typescript][typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-    "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-    // "oxc.configPath": "/Users/dev/.config/oxc/.oxlintrc.json",
-    // "oxc.enable": false,
-    // "oxc.fmt.configPath": "/Users/dev/.config/oxc/.oxfmtrc.json",
+    /*
+    --------------------------------------------------------------------
+    JAVASCRIPT
+    --------------------------------------------------------------------
+    - esbenp.prettier-vscode
+    */
+    "[javascript][javascriptreact][typescript][typescriptreact][markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "editor.tabSize": 2 },
     "prettier.configPath": "~/.config/.prettierrc",
 
-    /* PYTHON
-     * 01. ms-python.python
-     * 02. ms-python.vscode-pylance
-     * 03. ms-python.debugpy
-     * 04. ms-python.vscode-python-envs
-     * 05. prasadgk.pythoncodelens
-     * 06. charliermarsh.ruff
-     * 07. ms-toolsai.jupyter
-     */
+    /*
+    --------------------------------------------------------------------
+    PYTHON
+    --------------------------------------------------------------------
+    - astral-sh.ty
+    - charliermarsh.ruff
+    - jannchie.ruff-ignore-explainer
+    - ms-python.debugpy
+    - ms-python.python
+    - ms-python.vscode-pylance
+    - ms-python.vscode-python-envs
+    - ms-toolsai.jupyter
+    */
     "[python]": { "editor.defaultFormatter": "charliermarsh.ruff" },
     "[django-html]": { "editor.defaultFormatter": "junstyle.vscode-django-support" },
-    // "codeLens.enableCodeLens": true,
-    // "codeLens.filterDefinitions": true,
-    // "codeLens.filterImports": false,
     "python.analysis.autoFormatStrings": true,
     "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.extraPaths": ["${workspaceFolder}"],
     "python.analysis.generateWithTypeAnnotation": true,
-    "python.analysis.ignore": ["_ligacy*/**"],
     "python.analysis.supportAllPythonDocuments": true,
     "python.analysis.supportDocstringTemplate": true,
     "python.languageServer": "Pylance",
     "python.terminal.useEnvFile": true,
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    "python.testing.cwd": "${workspaceFolder}/tests",
     "python.testing.pytestEnabled": true,
     "python.useEnvironmentsExtension": false,
-    // "python.analysis.exclude": ["${workspaceFolder}/.venv", "${workspaceFolder}/.vscode", "${workspaceFolder}/typings"],
-    // "python.analysis.extraPaths": ["${workspaceFolder}/src", "${workspaceFolder}"],
-    // "python.testing.autoTestDiscoverOnSaveEnabled": true,
-    // "python.testing.cwd": "${workspaceFolder}/tests",
-
     "ty.disableLanguageServices": true,
 
-    /* ShellScript
-     *
-     * 01. mkhl.shfmt
-     */
+    /*
+    --------------------------------------------------------------------
+    ShellScript
+    --------------------------------------------------------------------
+    - mkhl.shfmt
+    */
     "[shellscript]": { "editor.defaultFormatter": "mkhl.shfmt" },
 
-    /* Rust
-     *
-     * 01. rust-lang.rust-analyzer
-     */
+    /*
+    --------------------------------------------------------------------
+    Rust
+    --------------------------------------------------------------------
+    - rust-lang.rust-analyzer
+    */
     "[rust]": { "editor.defaultFormatter": "rust-lang.rust-analyzer" },
 
-    /* TOML
-     *
-     * 01. tamasfe.even-better-toml
-     */
+    /*
+    --------------------------------------------------------------------
+    TOML
+    --------------------------------------------------------------------
+    - tamasfe.even-better-toml
+    */
     "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
     "evenBetterToml.schema.associations": {
         "pyproject.toml": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/pyproject.json",
         "taplo.toml": "https://json.schemastore.org/taplo.json"
-        // "pyproject.toml": "https://json.schemastore.org/pyproject.json",
     },
 
-    /* Yaml
-     *
-     * 01. redhat.vscode-yaml
-     */
+    /*
+    --------------------------------------------------------------------
+    Yaml
+    --------------------------------------------------------------------
+    - redhat.vscode-yaml
+    */
     "[yaml]": { "editor.defaultFormatter": "redhat.vscode-yaml" },
     "yaml.disableSchemaDetection": [],
     "docker.extension.enableComposeLanguageServer": false,
 
-    /* Go
-    *
-    * 01. golang.go
-    *
-    "[go]": { "editor.defaultFormatter": "golang.go" },
+    /*
+    --------------------------------------------------------------------
+    LUA
+    --------------------------------------------------------------------
+    - sumneko.lua
+    - JohnnyMorganz.stylua
     */
-
-    /* LUA
-     *
-     * 01. sumneko.lua
-     *
-     * "[lua]": { "editor.defaultFormatter": "sumneko.lua" },
-     */
-    "[lua]": { "editor.defaultFormatter": "JohnnyMorganz.stylua" },
+    "[lua]": { "editor.defaultFormatter": "JohnnyMorganz.stylua" }, // "sumneko.lua"
     "Lua.diagnostics.globals": ["vim"],
     "Lua.runtime.version": "LuaJIT",
     "Lua.workspace.library": ["~/.config/nvim", "~/.local/share/nvim", "/opt/homebrew/share/nvim/runtime", "/usr/local/share/nvim/runtime"],
 
-    /* Docker
-    *
-    * 01. docker.docker
-    * 02. ms-azuretools.vscode-containers
-    * 03. ms-azuretools.vscode-docker
-    * 04. ms-vscode-remote.remote-containers
+    /*
+    --------------------------------------------------------------------
+    Docker
+    --------------------------------------------------------------------
+    - docker.docker
+    - ms-azuretools.vscode-containers
+    - ms-azuretools.vscode-docker
+    - ms-vscode-remote.remote-containers
+
     "[dockercompose]": { "editor.defaultFormatter": "docker.docker" },
     "[dockerfile]": { "editor.defaultFormatter": "ms-azuretools.vscode-containers" },
     "docker.extension.enableComposeLanguageServer": false
     */
 
     /*
-     * vscodevim.vim
-     */
+    --------------------------------------------------------------------
+    vscodevim.vim
+    --------------------------------------------------------------------
+    */
     "vim.easymotion": true,
     "vim.incsearch": true, // default
     "vim.useSystemClipboard": true,
@@ -323,40 +336,14 @@
         { "before": ["<"], "commands": ["editor.action.outdentLines"] }
     ],
     "vim.operatorPendingModeKeyBindingsNonRecursive": [{ "before": ["("], "after": ["i("] }],
-    // To improve performance
-    "extensions.experimental.affinity": {
-        "vscodevim.vim": 1
-    }
+    "extensions.experimental.affinity": { "vscodevim.vim": 1 }, // To improve performance
 
-    // "[lua]": { "editor.defaultFormatter": "JohnnyMorganz.stylua", "editor.formatOnSave": true },
-    // "chat.viewSessions.orientation": "stacked",
-    // "editor.codeActionsOnSave": { "source.fixAll.prettier": "always" }, // "source.sort.json": "always",
-    // "editor.defaultFormatter": "esbenp.prettier-vscode",
-    // "editor.fontFamily": "JetBrainsMono Nerd Font",
-    // "editor.formatOnSave": true,
-    // "editor.minimap.enabled": false,
-    // "editor.minimap.renderCharacters": false,
-    // "explorer.compactFolders": false,
-    // "explorer.confirmDelete": false,
-    // "explorer.confirmDragAndDrop": false,
-    // "extensions.experimental.affinity": { "asvetliakov.vscode-neovim": 1 },
-    // "files.insertFinalNewline": true,
-    // "files.trimFinalNewlines": true,
-    // "files.trimTrailingWhitespace": true,
-    // "Lua.diagnostics.globals": ["vim"],
-    // "Lua.runtime.version": "LuaJIT",
-    // "Lua.workspace.library": ["~/.config/nvim", "/opt/homebrew/share/nvim/runtime", "/usr/local/share/nvim/runtime"],
-    // "prettier.printWidth": 300,
-    // "prettier.trailingComma": "none",
-    // "scm.compactFolders": false,
-    // "scm.defaultViewMode": "tree",
-    // "terminal.integrated.copyOnSelection": true,
-    // "terminal.integrated.initialHint": false
-    // "window.commandCenter": false,
-    // "workbench.activityBar.location": "top",
-    // "workbench.iconTheme": "material-icon-theme",
-    // "workbench.sideBar.location": "right",
-    // "workbench.tree.indent": 20,
-    // // "Lua.format.defaultConfig": { "max_line_length": "300" },
-    // // LUA
+    /*
+    --------------------------------------------------------------------
+    tailwindCSS
+    --------------------------------------------------------------------
+    */
+    "tailwindCSS.emmetCompletions": true,
+    "tailwindCSS.includeLanguages": { "typescriptreact": "javascript", "html": "html" },
+    "diffEditor.hideUnchangedRegions.enabled": true
 }

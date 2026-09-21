@@ -1,12 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 add_newline = false
 command_timeout = 500
-# right_format = """
-# $git_branch \
-# $git_status
-# """
-right_format = """$all"""
 
+right_format = """$all"""
 format = """
 $git_branch\
 $git_status\
